@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos , setTodos] = useState([]);
+  const [title , setTitle] = useState("")
+  const [body , setBody] = useState("")
+  
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const handlSubmit = (e) => {
+    e.preventDefault();
+    //setTodos((prev) => {
+     // return[...prev]
+   // })
+
+   const newTodo = {
+    id: Math.random(),
+    title,
+    body,
+   }
+
+   setTodos((prev) => {
+    return[...prev , newTodo];
+
+   });
+   const music = new Audio(); //Add
+   music.play();
+  }
+  
+  const deleteTodo = (id) => {
+   // const filteredTodo = todos.filter((todo) => {
+   //   return todo.id !==id;
+   // })
+
+   setTodos((prev) => {
+     return prev.filter((todo) => {
+       return todo.id !==id;
+     })
+   })
+
+   const music = new Audio(); //delete
+   music.play();
+  }
+
+  return(
+
+  <div className="content__wrapper">
+    <h1 className="main__title">To do list</h1>
+   <form className="form" onSubmit={handlSubmit}>
+    <span className="input__up-title">title:</span>
+   <input className="input" type="text" onChange={(e) => setTitle(e.target.value)} />
+   <span className="input__bt-title">your text:</span>
+    <input className="input" type="text" onChange={(e) => setBody(e.target.value)} />
+
+    <button className="btn">Add</button>
+   </form>
+
+   <ul className="list">
+    {todos.map((todo) => {
+      return(
+        <li className="list__item" key={todo.id}>
+          <h3 className="item__title">{todo.title}</h3>
+          <p className="item__text">{todo.body}</p>
+          <button className="del__btn" onClick={() => deleteTodo(todo.id)}>Delete</button>
+        </li>
+      )
+    })}
+   </ul>
+  </div>
+  );
 }
 
-export default App
+export default App;
