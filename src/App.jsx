@@ -22,7 +22,7 @@ function App() {
     return[...prev , newTodo];
 
    });
-   const music = new Audio(); //Add
+   const music = new Audio("./add-sound.mp3"); //Add
    music.play();
   }
   
@@ -37,7 +37,7 @@ function App() {
      })
    })
 
-   const music = new Audio(); //delete
+   const music = new Audio("./delete-sound.mp3") //delete
    music.play();
   }
 
