@@ -8,6 +8,9 @@
     list-style: none;
   }
   body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     background: rgb(227,130,19);
 background: linear-gradient(90deg, rgba(227,130,19,1) 0%, rgba(0,200,161,1) 57%, rgba(0,235,63,0.9920343137254902) 100%);
