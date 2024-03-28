@@ -39,6 +39,11 @@ background: linear-gradient(90deg, rgba(227,130,19,1) 0%, rgba(0,200,161,1) 57%,
     border: 1px solid blue;
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    opacity: 1;
+    transition: opacity 0.3s ; 
+  }
+  .input:placeholder-shown {
+    opacity: 0; 
   }
   .btn{
     padding: 10px;
@@ -93,6 +98,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     font-weight: 500;
     color: azure;
   }
+  
   .input__bt-title{
     font-size: 20px;
     font-weight: 500;
